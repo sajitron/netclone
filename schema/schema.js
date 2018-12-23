@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { GraphQLObjectType, GraphQLInt, GraphQLList, GraphQLString, GraphQLSchema } = require('graphql');
+require('dotenv').config({ path: './.env.development' });
 
 // Movie Type
 const MovieType = new GraphQLObjectType({
@@ -32,8 +33,8 @@ const RootQuery = new GraphQLObjectType({
 			type: new GraphQLList(MovieType),
 			resolve(parent, args) {
 				return axios
-					.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apikey}&language=en-US&page=1`)
-					.then((res) => res.data);
+					.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apikey}`)
+					.then((res) => res.data.results);
 			}
 		},
 		movie: {
@@ -44,9 +45,7 @@ const RootQuery = new GraphQLObjectType({
 				}
 			},
 			resolve(parent, args) {
-				axios
-					.get(`https://api.themoviedb.org/3/movie/${args.id}?api_key=${apikey}&language=en-US`)
-					.then((res) => res.data);
+				axios.get(`https://api.themoviedb.org/3/movie/${args.id}?api_key=${apikey}`).then((res) => res.data);
 			}
 		}
 	}
