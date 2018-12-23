@@ -1,0 +1,50 @@
+{
+	"name": "NetClone",
+	"version": "1.0.0",
+	"description": "A Netflix-like app",
+	"main": "index.js",
+	"scripts": {
+		"start": "node server/server.js",
+		"build:dev": "webpack",
+		"build:prod": "webpack -p --env production",
+		"dev-server": "webpack-dev-server",
+		"heroku-postbuild": "npm run build:prod"
+	},
+	"author": "Adams Banjo",
+	"license": "ISC",
+	"dependencies": {
+		"@babel/cli": "^7.1.0",
+		"@babel/core": "^7.1.0",
+		"@babel/polyfill": "^7.0.0",
+		"@babel/preset-env": "^7.1.0",
+		"@babel/preset-react": "^7.0.0",
+		"apollo-boost": "^0.1.23",
+		"axios": "^0.18.0",
+		"babel-core": "^7.0.0-bridge.0",
+		"babel-loader": "^8.0.4",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"css-loader": "^1.0.1",
+		"express": "^4.16.4",
+		"graphql": "^14.0.2",
+		"history": "^4.7.2",
+		"mini-css-extract-plugin": "^0.5.0",
+		"node-sass": "^4.10.0",
+		"normalize.css": "^8.0.1",
+		"react": "^16.6.3",
+		"react-apollo": "^2.3.3",
+		"react-dom": "^16.6.3",
+		"react-modal": "^3.6.1",
+		"react-router-dom": "^4.3.1",
+		"sass-loader": "^7.1.0",
+		"style-loader": "^0.23.1",
+		"webpack": "^4.25.1",
+		"webpack-cli": "^3.1.2"
+	},
+	"devDependencies": {
+		"cross-env": "^5.2.0",
+		"dotenv": "^6.2.0",
+		"enzyme": "^3.7.0",
+		"webpack-dev-server": "^3.1.10"
+	}
+}

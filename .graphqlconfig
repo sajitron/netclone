@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "react-spacex": {
+      "schemaPath": "schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": "http://localhost:5000/graphql"
+        }
+      }
+    }
+  }
+}
