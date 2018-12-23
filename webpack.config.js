@@ -1,6 +1,7 @@
 // entry -> output
 const devMode = process.env.NODE_ENV !== 'production';
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -59,6 +60,9 @@ module.exports = (env) => {
 		plugins: [
 			new MiniCssExtractPlugin({
 				filename: 'styles.css'
+			}),
+			new webpack.DefinePlugin({
+				'process.env.API_KEY': JSON.stringify(process.env.API_KEY)
 			})
 		],
 		devtool: isProduction ? 'source-map' : 'inline-source-map',
