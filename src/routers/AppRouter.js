@@ -1,24 +1,35 @@
 import React from 'react';
-import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
-import DashboardPage from '../components/DashboardPage';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Header from '../components/Header';
+import MoviesPage from '../components/MoviesPage';
+import MovieDetails from '../components/MovieDetails';
+import TopRatedmovies from '../components/TopRatedMovies';
+import PopularMovies from '../components/PopularMovies';
+import NowPlayingMovies from '../components/NowPlayingMovies';
 import NotFoundPage from '../components/NotFoundPage';
-import LoginPage from '../components/LoginPage';
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute';
 
-export const history = createHistory();
+const client = new ApolloClient({
+	uri: '/graphql'
+});
 
 const AppRouter = () => (
-  <Router history={history}>
-    <div>
-      <Switch>
-        <PublicRoute path="/" component={LoginPage} exact={true} />
-        <PrivateRoute path="/dashboard" component={DashboardPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
-  </Router>
+	<ApolloProvider client={client}>
+		<BrowserRouter>
+			<div>
+				<Header />
+				<Switch>
+					<Route path="/" component={MoviesPage} exact={true} />
+					<Route path="/movie/:movie_id" component={MovieDetails} />
+					<Route path="/popular" component={PopularMovies} />
+					<Route path="/playing" component={NowPlayingMovies} />
+					<Route path="/top" component={TopRatedmovies} />
+					<Route component={NotFoundPage} />
+				</Switch>
+			</div>
+		</BrowserRouter>
+	</ApolloProvider>
 );
 
 export default AppRouter;
