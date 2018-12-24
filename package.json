@@ -13,6 +13,7 @@
 	},
 	"author": "Adams Banjo",
 	"license": "ISC",
+	"proxy": "http://localhost:5000",
 	"dependencies": {
 		"@babel/cli": "^7.1.0",
 		"@babel/core": "^7.1.0",
