@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-// import Image from 'react-image-resizer'
 
 const ActorCard = ({ actor: { id, name, profile_path } }) => {
 	return (
