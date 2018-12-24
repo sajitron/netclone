@@ -1,6 +1,6 @@
 {
   "projects": {
-    "react-spacex": {
+    "netclone": {
       "schemaPath": "schema.graphql",
       "extensions": {
         "endpoints": {
