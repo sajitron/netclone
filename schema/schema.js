@@ -36,6 +36,9 @@ const MovieType = new GraphQLObjectType({
 		vote_average: {
 			type: GraphQLInt
 		},
+		overview: {
+			type: GraphQLString
+		},
 		poster_path: {
 			type: GraphQLString
 		},
@@ -71,11 +74,27 @@ const MovieType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
 	fields: {
-		movies: {
+		nowPlayingMovies: {
 			type: new GraphQLList(MovieType),
 			resolve(parent, args) {
 				return axios
 					.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apikey}`)
+					.then((res) => res.data.results);
+			}
+		},
+		popularMovies: {
+			type: new GraphQLList(MovieType),
+			resolve(parent, args) {
+				return axios
+					.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apikey}`)
+					.then((res) => res.data.results);
+			}
+		},
+		topRatedMovies: {
+			type: new GraphQLList(MovieType),
+			resolve(parent, args) {
+				return axios
+					.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}`)
 					.then((res) => res.data.results);
 			}
 		},
