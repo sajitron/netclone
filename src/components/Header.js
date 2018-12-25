@@ -24,6 +24,25 @@ const Header = () => (
 					Top Rated
 				</NavLink>
 			</div>
+			<div className="dropdown">
+				<div className="dropdown-label">Menu</div>
+				<div className="dropdown-menu">
+					<ul className="submenu">
+						<li>
+							<a href="/">Home</a>
+						</li>
+						<li>
+							<a href="/popular">Popular</a>
+						</li>
+						<li>
+							<a href="/playing">Now Playing</a>
+						</li>
+						<li>
+							<a href="/top">Top Rated</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</nav>
 	</header>
 );

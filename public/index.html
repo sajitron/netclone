@@ -12,6 +12,19 @@
 <body>
   <div id="app"></div>
   <script src="/dist/bundle.js"></script>
+  <script>
+    let menu = document.querySelector('.dropdown-label');
+    let hiddenMenu = document.querySelector('.dropdown-menu');
+
+    menu.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (hiddenMenu.style.display === 'block') {
+        hiddenMenu.style.display = 'none';
+      } else {
+        hiddenMenu.style.display = 'block';
+      }
+    })
+  </script>
 </body>
 
 </html>
