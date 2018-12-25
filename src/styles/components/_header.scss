@@ -1,12 +1,12 @@
 .header {
 	background: $navy;
+	width: 100%;
+	margin: 0 auto;
+	padding: 1.5rem 3rem;
 }
 
-.header__content {
-	align-items: center;
+.header__nav {
 	display: flex;
-	justify-content: space-between;
-	padding: $s-size 0;
 }
 
 .header__title {
@@ -15,4 +15,16 @@
 	h1 {
 		margin: 0;
 	}
+}
+
+.header__site-nav {
+	margin-left: auto;
+	padding-top: .5em;
+}
+
+.header__link {
+	display: inline-block;
+	color: $yellow;
+	margin-left: 1.5em;
+	text-decoration: none;
 }

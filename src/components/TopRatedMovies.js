@@ -18,19 +18,21 @@ export class TopRatedMovies extends PureComponent {
 	render() {
 		return (
 			<Fragment>
-				<h1>Top Rated Movies</h1>
-				<Query query={TOP_MOVIES_QUERY}>
-					{({ loading, error, data }) => {
-						if (loading) return <h3>Loading...</h3>;
-						if (error) console.log(error);
+				<div className="container">
+					<h1>Top Rated Movies</h1>
+					<Query query={TOP_MOVIES_QUERY}>
+						{({ loading, error, data }) => {
+							if (loading) return <h3>Loading...</h3>;
+							if (error) console.log(error);
 
-						return (
-							<Fragment>
-								{data.topRatedMovies.map((movie) => <MovieItem key={movie.id} movie={movie} />)}
-							</Fragment>
-						);
-					}}
-				</Query>
+							return (
+								<Fragment>
+									{data.topRatedMovies.map((movie) => <MovieItem key={movie.id} movie={movie} />)}
+								</Fragment>
+							);
+						}}
+					</Query>
+				</div>
 			</Fragment>
 		);
 	}
