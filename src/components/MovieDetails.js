@@ -1,8 +1,9 @@
 import React, { Fragment, PureComponent } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import ActorCard from './ActorCard';
 import { Link } from 'react-router-dom';
+import ActorCard from './ActorCard';
+import LoadingPage from './LoadingPage';
 
 const MOVIE_QUERY = gql`
 	query MovieQuery($movie_id: Int!) {
@@ -31,7 +32,7 @@ export class MovieDetails extends PureComponent {
 			<Fragment>
 				<Query query={MOVIE_QUERY} variables={{ movie_id }}>
 					{({ loading, error, data }) => {
-						if (loading) return <h4>Loading...</h4>;
+						if (loading) return <LoadingPage />;
 						if (error) console.log(error);
 
 						const { title, tagline, overview, backdrop_path, poster_path, release_date } = data.movie;
@@ -69,7 +70,9 @@ export class MovieDetails extends PureComponent {
 									})}
 								</div>
 								<hr />
-								<Link to="/">Back</Link>
+								<Link to="/" className="button">
+									Back
+								</Link>
 							</div>
 						);
 					}}

@@ -2,6 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import MovieItem from './MovieItem';
+import LoadingPage from './LoadingPage';
 
 const NOW_PLAYING_MOVIES_QUERY = gql`
 	query NowPlayingMoviesQuery {
@@ -22,7 +23,7 @@ export class NowPlayingMovies extends PureComponent {
 					<h1 className="movies__title">Now Showing</h1>
 					<Query query={NOW_PLAYING_MOVIES_QUERY}>
 						{({ loading, error, data }) => {
-							if (loading) return <h3>Loading...</h3>;
+							if (loading) return <LoadingPage />;
 							if (error) console.log(error);
 
 							return (
