@@ -1,0 +1,48 @@
+.backdrop-image {
+	margin: 1.5em 0;
+	width: 100%;
+}
+
+.tile {
+	padding: .2em;
+	color: $navy;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex > * + * {
+	margin-top: 0;
+	margin-left: 1em;
+}
+
+.column-main {
+	flex: 1;
+}
+
+.column-sidebar {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.tile {
+	flex: 1;
+}
+
+.centered {
+	text-align: center;
+}
+
+// media queries
+
+@media only screen and (max-width: 600px) {
+	.column-main {
+		display: none;
+	}
+
+	.column-sidebar {
+		flex: 1;
+	}
+}

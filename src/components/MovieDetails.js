@@ -37,17 +37,37 @@ export class MovieDetails extends PureComponent {
 						const { title, tagline, overview, backdrop_path, poster_path, release_date } = data.movie;
 
 						return (
-							<div>
-								<img src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`} alt={title} />
-								<img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={title} />
-								<h1>{title}</h1>
-								<h2>{tagline}</h2>
-								<h4>{release_date}</h4>
-								<p>{overview}</p>
-								{data.movie.cast.map((actor) => {
-									return <ActorCard key={actor.id} actor={actor} />;
-								})}
-
+							<div className="container">
+								<img
+									src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
+									alt={title}
+									className="backdrop-image"
+								/>
+								<div className="movie-details flex">
+									<div className="column-main tile">
+										<img
+											src={`https://image.tmdb.org/t/p/w342/${poster_path}`}
+											alt={title}
+											className="poster-image"
+										/>
+									</div>
+									<div className="column-sidebar">
+										<h1 className="tile centered">{title}</h1>
+										<h3 className="tile centered">{tagline}</h3>
+										<h4 className="tile centered">
+											<strong>Released:</strong> {release_date}
+										</h4>
+										<p className="tile centered">
+											<strong>Overview:</strong> {overview}
+										</p>
+									</div>
+								</div>
+								<h1 className="movies__title">Cast</h1>
+								<div className="movies__posters">
+									{data.movie.cast.map((actor) => {
+										return <ActorCard key={actor.id} actor={actor} />;
+									})}
+								</div>
 								<hr />
 								<Link to="/">Back</Link>
 							</div>

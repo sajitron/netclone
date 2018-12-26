@@ -19,7 +19,7 @@ export class TopRatedMovies extends PureComponent {
 		return (
 			<Fragment>
 				<div className="container">
-					<h1 className="movies__title">Top Rated Movies</h1>
+					<h1 className="movies__title">Top Rated</h1>
 					<Query query={TOP_MOVIES_QUERY}>
 						{({ loading, error, data }) => {
 							if (loading) return <h3>Loading...</h3>;
