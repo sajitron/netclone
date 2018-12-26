@@ -1,0 +1,23 @@
+.movie-item {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.movie-item:hover {
+	border: 1px solid $yellow;
+	box-shadow: 5px 10px 8px $light-grey;
+}
+
+.movie-item__image {
+	max-width: 100%;
+	flex: 1;
+	object-fit: cover;
+}
+
+.movie-item__title {
+	padding: 0.5em 0.8em;
+	background: $navy;
+	color: $light-grey;
+	text-align: center;
+}

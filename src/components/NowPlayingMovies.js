@@ -19,7 +19,7 @@ export class NowPlayingMovies extends PureComponent {
 		return (
 			<Fragment>
 				<div className="container">
-					<h1>Now Playing Movies</h1>
+					<h1 className="movies__title">Now Playing Movies</h1>
 					<Query query={NOW_PLAYING_MOVIES_QUERY}>
 						{({ loading, error, data }) => {
 							if (loading) return <h3>Loading...</h3>;
@@ -27,7 +27,11 @@ export class NowPlayingMovies extends PureComponent {
 
 							return (
 								<Fragment>
-									{data.nowPlayingMovies.map((movie) => <MovieItem key={movie.id} movie={movie} />)}
+									<div className="movies__posters">
+										{data.nowPlayingMovies.map((movie) => (
+											<MovieItem key={movie.id} movie={movie} />
+										))}
+									</div>
 								</Fragment>
 							);
 						}}

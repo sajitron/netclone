@@ -1,0 +1,15 @@
+.movies__title {
+	color: $yellow;
+	text-align: center;
+	padding: .5em 0;
+	background: $navy;
+}
+
+.movies__posters {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-auto-rows: 1fr;
+	grid-gap: 1em;
+	grid-auto-flow: dense;
+	margin: 2em;
+}
